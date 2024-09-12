@@ -15,7 +15,7 @@
             Console.WriteLine("Acelerar");
             Console.WriteLine(motorNafta.Acelerar());
 
-            IMotor motorDiesel = new MotorDiesel();
+            MotorElectricoAdapter motorDiesel = new MotorDiesel();
             Console.Write("MOTOR Diesel");
             Console.WriteLine("ARRANCO");
             Console.WriteLine(motorDiesel.Arrancar());

@@ -22,80 +22,81 @@
             public abstract void EnviarMensaje(string mensaje);
 
             //una vez definida la abstraccion vamos a definir la abstraccion extendidas
-
-            public class Email : Mensajeria
+        }
+        public class Email : Mensajeria
+        {
+            public Email(IServiceMSGProvider serviceMsgProvider) : base(serviceMsgProvider)
             {
-                public Email(IServiceMSGProvider serviceMsgProvider) : base(serviceMsgProvider)
-                {
-                }
-
-                public override void EnviarMensaje(string mensaje)
-                {
-                    Console.WriteLine($"Email enviado: {mensaje}");
-                    base._serviceMSGProvider.OnServiceMSG(mensaje);
-                }
             }
 
-            public class SMS : Mensajeria
+            public override void EnviarMensaje(string mensaje)
             {
-                public SMS(IServiceMSGProvider serviceMsgProvider) : base(serviceMsgProvider)
-                {
-                }
-
-                public override void EnviarMensaje(string mensaje)
-                {
-                    Console.WriteLine($"SMS enviado: {mensaje}");
-                    base._serviceMSGProvider.OnServiceMSG(mensaje);
-                }
-            }
-
-            public class NotifPush : Mensajeria
-            {
-                public NotifPush(IServiceMSGProvider serviceMsgProvider) : base(serviceMsgProvider)
-                {
-                }
-
-                public override void EnviarMensaje(string mensaje)
-                {
-                    Console.WriteLine($"NotifPush enviado: {mensaje}");
-                    base._serviceMSGProvider.OnServiceMSG(mensaje);
-                }
+                Console.WriteLine($"Email enviado: {mensaje}");
+                base._serviceMSGProvider.OnServiceMSG(mensaje);
             }
         }
-    }
 
-    //Aca hacemos las implementaciones
-    //Twilio, SendGrid o Firebase Cloud Messaging (FCM)
-
-    public interface IServiceMSGProvider
-    {
-        void OnServiceMSG(string msg);
-    }
-
-    public class Twilo : IServiceMSGProvider
-    {
-        public void OnServiceMSG(string msg)
+        public class SMS : Mensajeria
         {
-            Console.WriteLine($"Enviado desde Twilo:  {msg}");
+            public SMS(IServiceMSGProvider serviceMsgProvider) : base(serviceMsgProvider)
+            {
+            }
+
+            public override void EnviarMensaje(string mensaje)
+            {
+                Console.WriteLine($"SMS enviado: {mensaje}");
+                base._serviceMSGProvider.OnServiceMSG(mensaje);
+            }
+        }
+
+        public class NotifPush : Mensajeria
+        {
+            public NotifPush(IServiceMSGProvider serviceMsgProvider) : base(serviceMsgProvider)
+            {
+            }
+
+            public override void EnviarMensaje(string mensaje)
+            {
+                Console.WriteLine($"NotifPush enviado: {mensaje}");
+                base._serviceMSGProvider.OnServiceMSG(mensaje);
+            }
+        }
+
+
+
+        //Aca hacemos las implementaciones
+        //Twilio, SendGrid o Firebase Cloud Messaging (FCM)
+
+        public interface IServiceMSGProvider
+        {
+            void OnServiceMSG(string msg);
+        }
+
+        public class Twilo : IServiceMSGProvider
+        {
+            public void OnServiceMSG(string msg)
+            {
+                Console.WriteLine($"Enviado desde Twilo:  {msg}");
+            }
+        }
+
+        public class SendGrid : IServiceMSGProvider
+        {
+            public void OnServiceMSG(string msg)
+            {
+                Console.WriteLine($"Enviado desde sendgrid:  {msg}");
+            }
+        }
+
+        public class FirebaseCloudMessaging : IServiceMSGProvider
+        {
+            public void OnServiceMSG(string msg)
+            {
+                Console.WriteLine($"Enviado desde FirebaseCloudMsg:  {msg}");
+            }
         }
     }
-
-    public class SendGrid : IServiceMSGProvider
-    {
-        public void OnServiceMSG(string msg)
-        {
-            Console.WriteLine($"Enviado desde sendgrid:  {msg}");
-        }
-    }
-
-    public class FirebaseCloudMessaging : IServiceMSGProvider
-    {
-        public void OnServiceMSG(string msg)
-        {
-            Console.WriteLine($"Enviado desde FirebaseCloudMsg:  {msg}");
-        }
-    }
-
+}
     /*
 
             using Microsoft.VisualBasic;
@@ -122,4 +123,3 @@
             msgFCM.EnviarMensaje("ahora envio este msg desde Firebase");
 
      */
-}
