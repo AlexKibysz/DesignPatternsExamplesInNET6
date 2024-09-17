@@ -12,7 +12,7 @@ namespace PatronesEstructurales
 
     public interface IHamburgesa
     {
-        decimal precio();
+        double precio();
         string descripcion();
     }
 
@@ -23,9 +23,9 @@ namespace PatronesEstructurales
             return "BigMac"; 
         } 
 
-        public decimal precio()
+        public double precio()
         {
-            return 1.2m;
+            return 1.2;
         }
 
     }
@@ -33,6 +33,7 @@ namespace PatronesEstructurales
     public abstract class BigMacDecorator : IHamburgesa //la hacemos abstracta ya que tenemos que armar
                                                         //la propiedad para recibir al que vamos a "envolver"
     {
+
         private IHamburgesa _hamburgesa;
 
         public BigMacDecorator(IHamburgesa hamburgesa)
@@ -45,7 +46,7 @@ namespace PatronesEstructurales
             return  _hamburgesa.descripcion();
         }
 
-        public virtual decimal precio()
+        public virtual double precio()
         {
             return _hamburgesa.precio();
         }
@@ -63,7 +64,7 @@ namespace PatronesEstructurales
             return base.descripcion() + " Se agrega extra de Bacon";
         }
 
-        public override decimal precio()
+        public override double precio()
         {
             return base.precio() + 100;
         }
@@ -81,7 +82,7 @@ namespace PatronesEstructurales
             return base.descripcion() + " Se agrega extra de Cheddar";
         }
 
-        public override decimal precio()
+        public override double precio()
         {
             return base.precio() + 150;
         }
@@ -99,7 +100,7 @@ namespace PatronesEstructurales
             return base.descripcion() + " Se agrega extra de Carne";
         }
 
-        public override decimal precio()
+        public override double precio()
         {
             return base.precio() + 500;
         }
@@ -112,12 +113,13 @@ namespace PatronesEstructurales
 
 BigMac bigMac = new BigMac();
 
-IHamburgesa bigMacCompleto = new extraBacon(bigMac);
+BigMacDecorator bigMacCompleto = new extraBacon(bigMac);
 
-IHamburgesa bigMacCompleto1 = new extraCheddar(bigMacCompleto);
+BigMacDecorator bigMacCompleto1 = new extraCheddar(bigMacCompleto);
 
-IHamburgesa bigMacCompleto2 = new extraCarne(bigMacCompleto1);
+BigMacDecorator bigMacCompleto2 = new extraCarne(bigMacCompleto1);
 
-Console.WriteLine($"{bigMacCompleto2.descripcion()}",
-    " y el prcio es de", $"{bigMacCompleto2.precio().ToString()}");
+Console.WriteLine($"{bigMacCompleto1.descripcion()}" + 
+    $" y el prcio es de {bigMacCompleto1.precio()}");
+
 */
