@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PatronesEstructurales
+﻿namespace PatronesEstructurales
 {
     public class DecoratorPart2
     {
@@ -20,8 +14,8 @@ namespace PatronesEstructurales
     {
         public string descripcion()
         {
-            return "BigMac"; 
-        } 
+            return "BigMac";
+        }
 
         public double precio()
         {
@@ -43,7 +37,7 @@ namespace PatronesEstructurales
 
         public virtual string descripcion()
         {
-            return  _hamburgesa.descripcion();
+            return _hamburgesa.descripcion();
         }
 
         public virtual double precio()

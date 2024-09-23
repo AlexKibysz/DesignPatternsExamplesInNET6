@@ -16,14 +16,14 @@ namespace PatronesComportamiento.State
 
             VendingMachine vendingMachine = new VendingMachine(noCoinsInitial);
 
-            
+
             for (int i = 0; i < 5; i++)
             {
                 vendingMachine.doThis();
 
                 vendingMachine.changeState();
             }
-    
+
         }
     }
 }

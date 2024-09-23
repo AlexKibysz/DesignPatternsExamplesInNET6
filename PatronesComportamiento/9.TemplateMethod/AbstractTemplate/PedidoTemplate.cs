@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PatronesComportamiento._9.TemplateMethod.AbstractTemplate
+﻿namespace PatronesComportamiento._9.TemplateMethod.AbstractTemplate
 {
     public abstract class PedidoTemplate
     {
@@ -31,7 +25,7 @@ namespace PatronesComportamiento._9.TemplateMethod.AbstractTemplate
 
 
         public abstract void ConfirmacionCliente();
-        
+
 
     }
 
@@ -58,7 +52,7 @@ namespace PatronesComportamiento._9.TemplateMethod.AbstractTemplate
         private void generarEmpaquetado()
         {
             Console.WriteLine("Se genera el empaquetado y etiquetado...");
-            
+
         }
 
         public override void procesamientoPago()
@@ -72,9 +66,9 @@ namespace PatronesComportamiento._9.TemplateMethod.AbstractTemplate
             Console.WriteLine("Se calcula el costo de envio...");
         }
 
-      
 
-        
+
+
     }
 
     public class PedidoDigital : PedidoTemplate
@@ -99,7 +93,7 @@ namespace PatronesComportamiento._9.TemplateMethod.AbstractTemplate
             Console.WriteLine("Procesando el pago del producto digital...");
         }
 
-      
+
     }
 
     public class PedidoSuscripcion : PedidoTemplate

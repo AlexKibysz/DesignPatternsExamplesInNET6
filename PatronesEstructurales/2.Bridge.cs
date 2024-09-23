@@ -97,29 +97,29 @@
         }
     }
 }
-    /*
+/*
 
-            using Microsoft.VisualBasic;
-            using PatronesEstructurales;
-            using System.ComponentModel.DataAnnotations;
-            using static PatronesEstructurales.Bridge.Mensajeria;
+        using Microsoft.VisualBasic;
+        using PatronesEstructurales;
+        using System.ComponentModel.DataAnnotations;
+        using static PatronesEstructurales.Bridge.Mensajeria;
 
-            var twilo = new Twilo();
+        var twilo = new Twilo();
 
-            var sendGrid = new SendGrid();
+        var sendGrid = new SendGrid();
 
-            var FCM = new FirebaseCloudMessaging();
+        var FCM = new FirebaseCloudMessaging();
 
-            var email = new Email(sendGrid);
+        var email = new Email(sendGrid);
 
-            email.EnviarMensaje("Hola mundo estoy enviando este desde sendgrid y email para este ejemplo");
+        email.EnviarMensaje("Hola mundo estoy enviando este desde sendgrid y email para este ejemplo");
 
-            var msg = new SMS(twilo);
+        var msg = new SMS(twilo);
 
-            msg.EnviarMensaje("estoy enviando este msg desde twilo y ahora voy a mandar otro msg desde otro lado");
+        msg.EnviarMensaje("estoy enviando este msg desde twilo y ahora voy a mandar otro msg desde otro lado");
 
-            var msgFCM = new SMS(FCM);
+        var msgFCM = new SMS(FCM);
 
-            msgFCM.EnviarMensaje("ahora envio este msg desde Firebase");
+        msgFCM.EnviarMensaje("ahora envio este msg desde Firebase");
 
-     */
+ */

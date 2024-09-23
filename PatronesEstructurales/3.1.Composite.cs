@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PatronesEstructurales
+﻿namespace PatronesEstructurales
 {
     public class CompositeExample2
     {
@@ -16,7 +9,7 @@ namespace PatronesEstructurales
     //deberian implementar metodos como addMenuComponent al vicio 
     public interface IMenuComponent
     {
-  
+
         string getName();
 
         string getDescription();
@@ -43,7 +36,7 @@ namespace PatronesEstructurales
     public class MenuItem : IMenuItem
     {
         private string Name { get; set; }
-        private string Description { get; set ; }
+        private string Description { get; set; }
         private bool isVeggy { get; set; }
 
         public MenuItem(string name, string description, bool isveggy)

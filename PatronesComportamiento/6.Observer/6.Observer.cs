@@ -23,7 +23,7 @@ namespace PatronesComportamiento
                 //hago un if por el condicional que tiene state dentro de cada Observador
                 subject.SomeBusinessLogic();
             }
-           
+
             subject.Detach(clienteSms1);
 
             subject.SomeBusinessLogic();

@@ -1,11 +1,5 @@
 ﻿using PatronesComportamiento._10.Visitor.AbstractVisitor;
 using PatronesComportamiento._10.Visitor.ConcreteElement;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PatronesComportamiento._10.Visitor.ConcreteVisitor
 {

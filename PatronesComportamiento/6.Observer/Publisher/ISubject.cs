@@ -1,9 +1,4 @@
 ﻿using PatronesComportamiento._6.Observer.Suscribers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PatronesComportamiento._6.Observer.Publisher
 {
@@ -16,6 +11,6 @@ namespace PatronesComportamiento._6.Observer.Publisher
         void Detach(IObserverT observer);
         void notify();
 
-        public int state { get;}
+        public int state { get; }
     }
 }
