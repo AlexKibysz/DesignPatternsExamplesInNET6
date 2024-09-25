@@ -2,14 +2,14 @@
 {
     public class PersonaHistory
     {
-        private List<MementoPersona> _mementos = new List<MementoPersona>();
+        private readonly List<MementoPersona> _mementos = new List<MementoPersona>();
 
-        public void AddMementos(MementoPersona m)
+        public void AddMemento(MementoPersona m)
         {
             _mementos.Add(m);
         }
 
-        public MementoPersona getMemento(int index)
+        public MementoPersona GetMemento(int index)
         {
             return _mementos[index];
         }
