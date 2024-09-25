@@ -1,4 +1,6 @@
-﻿namespace PatronesComportamiento._5.Memento
+﻿using PatronesComportamiento._5.Memento.Helper;
+
+namespace PatronesComportamiento._5.Memento
 {
     public class PersonaMem
     {
