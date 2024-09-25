@@ -2,18 +2,18 @@
 {
     public class MementoPersona
     {
-        private PersonaMem personaMem;
-
-        private DateTime datetime;
+        private readonly PersonaMem _personaMem;
+        private readonly DateTime _datetime;
 
         public MementoPersona(PersonaMem personaMem, DateTime datetime)
         {
-            this.personaMem = personaMem;
+            _personaMem = personaMem;
+            _datetime = datetime;
         }
 
-        public void readMemento()
+        public void ReadMemento()
         {
-            Console.WriteLine($"mi estado a las {datetime} es: edad: {this.personaMem.edad},nombre: {this.personaMem.nombre}, apellido: {this.personaMem.apellido}, profesion: {this.personaMem.profesion}");
+            Console.WriteLine($"Estado a las {_datetime}: Edad: {_personaMem.Edad}, Nombre: {_personaMem.Nombre}, Apellido: {_personaMem.Apellido}, Profesion: {_personaMem.Profesion}");
         }
     }
 }
