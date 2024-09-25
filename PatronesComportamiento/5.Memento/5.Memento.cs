@@ -7,25 +7,20 @@ namespace PatronesComportamiento
     {
         public static void clienteMementoEjecutar()
         {
-            PersonaMem Alex = new PersonaMem(21, "Alexander", "Kibysz", "Programador");
+            var alex = new PersonaMem(21, "Alexander", "Kibysz", "Programador");
+            var personaHistory = new PersonaHistory();
 
-            PersonaHistory personaHistory = new PersonaHistory();
+            personaHistory.AddMemento(alex.GuardarHistorial(DateTime.Now));
+            alex.CambioDeDatos();
+            personaHistory.AddMemento(alex.GuardarHistorial(DateTime.Now));
+            alex.CambioDeDatos();
+            personaHistory.AddMemento(alex.GuardarHistorial(DateTime.Now));
 
-            personaHistory.AddMementos(Alex.guardarHistorial(DateTime.Now));
-
-            Alex.cambioDeDatos();
-
-            personaHistory.AddMementos(Alex.guardarHistorial(DateTime.Now));
-
-            Alex.cambioDeDatos();
-
-            personaHistory.AddMementos(Alex.guardarHistorial(DateTime.Now));
-
-            Console.WriteLine("AHORA VAMOS A VER COMO FUE CAMBIANDO EL ESTADO DEL MAS ANTIGUO A NUEVO");
-            for (int i = 0; i < 3; i++)
+            Console.WriteLine("Historial de cambios:");
+            for (var i = 0; i < 3; i++)
             {
-                MementoPersona history = personaHistory.getMemento(i);
-                history.readMemento();
+                var history = personaHistory.GetMemento(i);
+                history.ReadMemento();
             }
 
             Console.Read();
