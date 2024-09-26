@@ -1,28 +1,26 @@
-﻿using PatronesComportamiento._4._1MediatorChat.Components.Abstract;
-using PatronesComportamiento._4._1MediatorChat.Components.Concrete;
-using PatronesComportamiento._4._1MediatorChat.Mediator;
-
+﻿using PatronesComportamiento;
+using PatronesComportamiento._5.Memento;
+using PatronesComportamiento._5.Memento.Caretaker;
 internal class Program
 {
     private static void Main(string[] args)
     {
+        var alex = new PersonaMem(21, "Alexander", "Kibysz", "Programador");
+        var personaHistory = new PersonaHistory();
 
-        IChatMediator chatMediator = new ChatMediator();
+        personaHistory.AddMemento(alex.GuardarHistorial(DateTime.Now));
+        alex.CambioDeDatos();
+        personaHistory.AddMemento(alex.GuardarHistorial(DateTime.Now));
+        alex.CambioDeDatos();
+        personaHistory.AddMemento(alex.GuardarHistorial(DateTime.Now));
 
-        IUser user1 = new User("Alice", chatMediator);
-        IUser user2 = new User("Bob", chatMediator);
-        IUser user3 = new User("Charlie", chatMediator);
+        Console.WriteLine("Historial de cambios:");
+        for (var i = 0; i < 3; i++)
+        {
+            var history = personaHistory.GetMemento(i);
+            history.ReadMemento();
+        }
 
-        chatMediator.AddUser(user1);
-        chatMediator.AddUser(user2);
-        chatMediator.AddUser(user3);
-
-        user1.SendMessage("Hola a todos!");
-        user2.SendMessage("Hola Alice!");
-        user3.SendMessage("Hola Bob!");
-
-        // Enviar un mensaje directo de Alice a Bob
-        chatMediator.SendDirectMessage("¿Cómo estás, Bob?", user1, user2);
-
+        Console.Read();
     }
 }

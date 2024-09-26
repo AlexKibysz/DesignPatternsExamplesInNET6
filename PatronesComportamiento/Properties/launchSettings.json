@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "PatronesComportamiento": {
+      "commandName": "Project",
+      "nativeDebugging": false
+    }
+  }
+}
