@@ -1,58 +1,53 @@
 ﻿using PatronesComportamiento._6._1Observer.Subscriber.Abstract;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PatronesComportamiento._6._1Observer.SubjectPublisher.Abstract
 {
     public abstract class Stock
     {
-       
-            private string symbol;
-            private double price;
-            private List<IInvestor> investors = new List<IInvestor>();
-            // Constructor
-            public Stock(string symbol, double price)
+
+        private string symbol;
+        private double price;
+        private List<IInvestor> investors = new List<IInvestor>();
+        // Constructor
+        public Stock(string symbol, double price)
+        {
+            this.symbol = symbol;
+            this.price = price;
+        }
+        public void Attach(IInvestor investor)
+        {
+            investors.Add(investor);
+        }
+        public void Detach(IInvestor investor)
+        {
+            investors.Remove(investor);
+        }
+        public void Notify()
+        {
+            foreach (IInvestor investor in investors)
             {
-                this.symbol = symbol;
-                this.price = price;
+                investor.Update(this);
             }
-            public void Attach(IInvestor investor)
+            Console.WriteLine("");
+        }
+        // Gets or sets the price
+        public double Price
+        {
+            get { return price; }
+            set
             {
-                investors.Add(investor);
-            }
-            public void Detach(IInvestor investor)
-            {
-                investors.Remove(investor);
-            }
-            public void Notify()
-            {
-                foreach (IInvestor investor in investors)
+                if (price != value)
                 {
-                    investor.Update(this);
+                    price = value;
+                    Notify();
                 }
-                Console.WriteLine("");
-            }
-            // Gets or sets the price
-            public double Price
-            {
-                get { return price; }
-                set
-                {
-                    if (price != value)
-                    {
-                        price = value;
-                        Notify();
-                    }
-                }
-            }
-            // Gets the symbol
-            public string Symbol
-            {
-                get { return symbol; }
             }
         }
-    
+        // Gets the symbol
+        public string Symbol
+        {
+            get { return symbol; }
+        }
+    }
+
 }

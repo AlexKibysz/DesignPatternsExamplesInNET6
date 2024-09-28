@@ -2,11 +2,6 @@
 using PatronesCombinados.CompositeIterator.Composite.Leaf;
 using PatronesCombinados.CompositeIterator.Composite.Util;
 using PatronesCombinados.CompositeIterator.Iterador;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PatronesCombinados.CompositeIterator
 {

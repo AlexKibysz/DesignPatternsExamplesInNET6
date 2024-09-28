@@ -1,5 +1,4 @@
-﻿using PatronesComportamiento;
-using PatronesComportamiento._5.Memento;
+﻿using PatronesComportamiento._5.Memento;
 using PatronesComportamiento._5.Memento.Caretaker;
 internal class Program
 {

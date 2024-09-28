@@ -1,10 +1,5 @@
 ﻿using PatronesComportamiento._6._1Observer.SubjectPublisher.Abstract;
 using PatronesComportamiento._6._1Observer.Subscriber.Abstract;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PatronesComportamiento._6._1Observer.Subscriber.Concrete
 {

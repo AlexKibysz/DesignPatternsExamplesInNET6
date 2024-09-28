@@ -1,16 +1,12 @@
 ﻿using PatronesComportamiento._6._1Observer.SubjectPublisher.Concrete;
 using PatronesComportamiento._6._1Observer.Subscriber.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PatronesComportamiento._6._1Observer
 {
     public static class ClientObserver
     {
-        public static void test() {
+        public static void test()
+        {
             IBM ibm = new IBM("IBM", 120.00);
             ibm.Attach(new Investor("Sorros"));
             ibm.Attach(new Investor("Berkshire"));
@@ -22,8 +18,8 @@ namespace PatronesComportamiento._6._1Observer
             // Wait for user
             Console.ReadKey();
         }
-     
-           
+
+
 
     }
 }
